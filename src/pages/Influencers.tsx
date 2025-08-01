@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -14,10 +14,19 @@ import {
   Eye,
   Heart
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 
 const Influencers = () => {
+  const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
+
+  // Handle URL search parameter
+  useEffect(() => {
+    const urlSearchTerm = searchParams.get('search');
+    if (urlSearchTerm) {
+      setSearchTerm(urlSearchTerm);
+    }
+  }, [searchParams]);
   
   // Mock data - will be replaced with real data from Supabase
   const influencers = [
@@ -34,13 +43,13 @@ const Influencers = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Influencers</h1>
+          <h1 className="text-2xl font-bold text-foreground">Influencers</h1>
           <p className="text-muted-foreground mt-1">
-            Manage and track your influencer database
+            {searchTerm ? `Search results for "${searchTerm}"` : 'Manage and track your influencer database'}
           </p>
         </div>
         <Link to="/add">
-          <Button className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg transition-all duration-200">
+          <Button>
             <Plus className="h-4 w-4 mr-2" />
             Add Influencer
           </Button>

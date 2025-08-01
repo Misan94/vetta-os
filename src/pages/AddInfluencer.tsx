@@ -93,20 +93,13 @@ const AddInfluencer = () => {
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="max-w-2xl mx-auto">
       {/* Header */}
-      <div className="flex items-center space-x-4 mb-6">
-        <Link to="/influencers">
-          <Button variant="outline" size="icon">
-            <ArrowLeft className="h-4 w-4" />
-          </Button>
-        </Link>
-        <div>
-          <h1 className="text-3xl font-bold text-foreground">Add New Influencer</h1>
-          <p className="text-muted-foreground mt-1">
-            Add a new influencer to your database and start tracking their metrics
-          </p>
-        </div>
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold text-foreground mb-2">Add New Influencer</h1>
+        <p className="text-muted-foreground">
+          Add a new influencer to your database with their basic information
+        </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
@@ -258,7 +251,7 @@ const AddInfluencer = () => {
 
         {/* Submit Button */}
         <div className="flex justify-end space-x-4">
-          <Link to="/influencers">
+          <Link to="/">
             <Button variant="outline" type="button">
               Cancel
             </Button>
@@ -266,7 +259,6 @@ const AddInfluencer = () => {
           <Button 
             type="submit" 
             disabled={loading}
-            className="bg-gradient-to-r from-primary to-primary-glow"
           >
             {loading ? (
               <>Saving...</>
