@@ -56,7 +56,7 @@ const GoogleStyleHomepage = () => {
               Influencer<span className="font-medium text-primary">DB</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mx-auto">
-              Discover, manage, and analyze influencers in your database
+              Discover, manage, and analyze influencers for your marketing campaigns
             </p>
           </div>
 
