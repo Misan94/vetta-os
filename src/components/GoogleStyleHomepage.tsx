@@ -32,7 +32,7 @@ const GoogleStyleHomepage = () => {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-2">
             <Instagram className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold text-foreground">InfluencerDB</span>
+            <span className="text-lg font-semibold text-foreground">Vetta</span>
           </div>
           <Button variant="ghost" size="sm">
             <Users className="h-4 w-4 mr-2" />
@@ -53,7 +53,7 @@ const GoogleStyleHomepage = () => {
               </div>
             </div>
             <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight">
-              Influencer<span className="font-medium text-primary">DB</span>
+              Vetta
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mx-auto">
               Discover, manage, and analyze influencers for your marketing campaigns

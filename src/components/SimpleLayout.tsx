@@ -31,7 +31,7 @@ const SimpleLayout = ({ children, title, showBackButton = true }: SimpleLayoutPr
             )}
             <Link to="/" className="flex items-center space-x-2">
               <Instagram className="h-6 w-6 text-primary" />
-              <span className="text-lg font-semibold text-foreground">InfluencerDB</span>
+              <span className="text-lg font-semibold text-foreground">Vetta</span>
             </Link>
           </div>
           {title && (
