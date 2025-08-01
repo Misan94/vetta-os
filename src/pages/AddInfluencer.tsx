@@ -27,14 +27,7 @@ const AddInfluencer = () => {
     bio: '',
     category: '',
     location: '',
-    profileUrl: '',
-    followers: '',
-    following: '',
-    posts: '',
-    engagementRate: '',
-    avgLikes: '',
-    avgComments: '',
-    avgViews: ''
+    profileUrl: ''
   });
 
   const [tags, setTags] = useState<string[]>([]);
@@ -85,14 +78,7 @@ const AddInfluencer = () => {
         bio: '',
         category: '',
         location: '',
-        profileUrl: '',
-        followers: '',
-        following: '',
-        posts: '',
-        engagementRate: '',
-        avgLikes: '',
-        avgComments: '',
-        avgViews: ''
+        profileUrl: ''
       });
       setTags([]);
     } catch (error) {
@@ -124,9 +110,9 @@ const AddInfluencer = () => {
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {/* Main Information */}
-          <Card className="lg:col-span-2 p-6">
+          <Card className="p-6">
             <h2 className="text-xl font-semibold text-foreground mb-4 flex items-center">
               <Instagram className="h-5 w-5 mr-2 text-primary" />
               Basic Information
@@ -268,97 +254,6 @@ const AddInfluencer = () => {
             </div>
           </Card>
 
-          {/* Metrics */}
-          <Card className="p-6">
-            <h2 className="text-xl font-semibold text-foreground mb-4">Metrics</h2>
-            
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="followers">Followers</Label>
-                <Input
-                  id="followers"
-                  name="followers"
-                  type="number"
-                  value={formData.followers}
-                  onChange={handleInputChange}
-                  placeholder="10000"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="following">Following</Label>
-                <Input
-                  id="following"
-                  name="following"
-                  type="number"
-                  value={formData.following}
-                  onChange={handleInputChange}
-                  placeholder="500"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="posts">Posts</Label>
-                <Input
-                  id="posts"
-                  name="posts"
-                  type="number"
-                  value={formData.posts}
-                  onChange={handleInputChange}
-                  placeholder="250"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="engagementRate">Engagement Rate (%)</Label>
-                <Input
-                  id="engagementRate"
-                  name="engagementRate"
-                  type="number"
-                  step="0.01"
-                  value={formData.engagementRate}
-                  onChange={handleInputChange}
-                  placeholder="3.5"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="avgLikes">Avg Likes</Label>
-                <Input
-                  id="avgLikes"
-                  name="avgLikes"
-                  type="number"
-                  value={formData.avgLikes}
-                  onChange={handleInputChange}
-                  placeholder="1500"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="avgComments">Avg Comments</Label>
-                <Input
-                  id="avgComments"
-                  name="avgComments"
-                  type="number"
-                  value={formData.avgComments}
-                  onChange={handleInputChange}
-                  placeholder="50"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="avgViews">Avg Views</Label>
-                <Input
-                  id="avgViews"
-                  name="avgViews"
-                  type="number"
-                  value={formData.avgViews}
-                  onChange={handleInputChange}
-                  placeholder="5000"
-                />
-              </div>
-            </div>
-          </Card>
         </div>
 
         {/* Submit Button */}
