@@ -24,32 +24,6 @@ const GoogleStyleHomepage = () => {
     }
   };
 
-  const quickActions = [
-    {
-      title: "Add Influencer",
-      description: "Add a new influencer to your database",
-      icon: Plus,
-      href: "/add",
-      color: "hover:bg-primary/5 hover:border-primary",
-      iconColor: "text-primary"
-    },
-    {
-      title: "Browse Database",
-      description: "View all influencers in your collection",
-      icon: Database,
-      href: "/influencers",
-      color: "hover:bg-accent/5 hover:border-accent",
-      iconColor: "text-accent"
-    },
-    {
-      title: "View Analytics",
-      description: "Analyze performance and engagement metrics",
-      icon: TrendingUp,
-      href: "/analytics",
-      color: "hover:bg-success/5 hover:border-success",
-      iconColor: "text-success"
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -115,22 +89,6 @@ const GoogleStyleHomepage = () => {
                 <Plus className="h-4 w-4 mr-2" />
                 Add New Influencer
               </Button>
-            </div>
-          </div>
-
-          {/* Quick Actions */}
-          <div className="pt-8">
-            <p className="text-sm text-muted-foreground mb-6">Quick Actions</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {quickActions.map((action, index) => (
-                <Link key={index} to={action.href}>
-                  <Card className={`p-6 text-center transition-all duration-200 cursor-pointer border-2 ${action.color}`}>
-                    <action.icon className={`h-8 w-8 mx-auto mb-3 ${action.iconColor}`} />
-                    <h3 className="font-medium text-foreground mb-2">{action.title}</h3>
-                    <p className="text-sm text-muted-foreground">{action.description}</p>
-                  </Card>
-                </Link>
-              ))}
             </div>
           </div>
         </div>
