@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
-import { Instagram, ArrowLeft } from 'lucide-react';
+import { Telescope, ArrowLeft } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
 interface SimpleLayoutProps {
@@ -30,7 +30,7 @@ const SimpleLayout = ({ children, title, showBackButton = true }: SimpleLayoutPr
               </Button>
             )}
             <Link to="/" className="flex items-center space-x-2">
-              <Instagram className="h-6 w-6 text-primary" />
+              <Telescope className="h-6 w-6 text-primary" />
               <span className="text-lg font-semibold text-foreground">Vetta</span>
             </Link>
           </div>

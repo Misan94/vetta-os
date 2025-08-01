@@ -7,7 +7,7 @@ import {
   Plus, 
   Users, 
   TrendingUp,
-  Instagram,
+  Telescope,
   Sparkles,
   Database
 } from 'lucide-react';
@@ -31,7 +31,7 @@ const GoogleStyleHomepage = () => {
       <header className="w-full py-4 px-6">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-2">
-            <Instagram className="h-6 w-6 text-primary" />
+            <Telescope className="h-6 w-6 text-primary" />
             <span className="text-lg font-semibold text-foreground">Vetta</span>
           </div>
           <Button variant="ghost" size="sm">
@@ -48,7 +48,7 @@ const GoogleStyleHomepage = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-center mb-6">
               <div className="relative">
-                <Instagram className="h-16 w-16 text-primary" />
+                <Telescope className="h-16 w-16 text-primary" />
                 <Sparkles className="h-6 w-6 text-accent absolute -top-1 -right-1" />
               </div>
             </div>
