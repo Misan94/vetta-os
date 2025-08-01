@@ -23,7 +23,6 @@ const Layout = ({ children }: LayoutProps) => {
   const navigation = [
     { name: 'Dashboard', href: '/', icon: BarChart3 },
     { name: 'Influencers', href: '/influencers', icon: Users },
-    { name: 'Analytics', href: '/analytics', icon: TrendingUp },
   ];
 
   return (
