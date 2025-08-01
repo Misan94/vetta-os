@@ -24,7 +24,6 @@ const Layout = ({ children }: LayoutProps) => {
     { name: 'Dashboard', href: '/', icon: BarChart3 },
     { name: 'Influencers', href: '/influencers', icon: Users },
     { name: 'Analytics', href: '/analytics', icon: TrendingUp },
-    { name: 'Add Influencer', href: '/add', icon: Plus },
   ];
 
   return (
@@ -85,24 +84,6 @@ const Layout = ({ children }: LayoutProps) => {
             })}
           </nav>
 
-          {/* Stats Card */}
-          <div className="mx-4 mt-8 p-4 rounded-lg bg-gradient-to-br from-card to-secondary border">
-            <h3 className="font-semibold text-sm text-foreground mb-2">Quick Stats</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Total Influencers</span>
-                <span className="font-medium">0</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Avg Engagement</span>
-                <span className="font-medium">0%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Last Updated</span>
-                <span className="font-medium">Never</span>
-              </div>
-            </div>
-          </div>
         </aside>
 
         {/* Main Content */}
