@@ -97,8 +97,8 @@ const GoogleStyleHomepage = () => {
       {/* Footer */}
       <footer className="py-6 px-6 text-center">
         <div className="max-w-7xl mx-auto">
-          <p className="text-sm text-muted-foreground">
-            Effortless Influencer Management
+          <p className="text-sm text-muted-foreground italic">
+            Effortless Influencer Management ❤️
           </p>
         </div>
       </footer>
