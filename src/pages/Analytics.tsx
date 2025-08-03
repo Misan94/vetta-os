@@ -153,7 +153,7 @@ const Analytics = () => {
               <Users className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-medium text-foreground mb-2">No category data</h3>
               <p className="text-muted-foreground">
-                Category breakdown will appear once you add influencers
+                Category breakdown will appear once you track influencers
               </p>
             </div>
           ) : (

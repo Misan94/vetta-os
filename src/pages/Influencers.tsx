@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Separator } from '@/components/ui/separator';
 import { 
   Search, 
   Plus, 
@@ -15,16 +17,58 @@ import {
   Users,
   Eye,
   Heart,
-  Loader2
+  Loader2,
+  MapPin,
+  Calendar,
+  Globe,
+  ExternalLink,
+  Youtube,
+  Twitter,
+  Facebook,
+  Linkedin,
+  Music
 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useSupabaseQuery } from '@/hooks/useSupabase';
 import { supabase } from '@/lib/supabase';
 
+// Platform icon mapping
+const PLATFORM_ICONS = {
+  instagram: Instagram,
+  tiktok: Music,
+  youtube: Youtube,
+  twitter: Twitter,
+  facebook: Facebook,
+  linkedin: Linkedin,
+} as const;
+
+// Platform color mapping
+const PLATFORM_COLORS = {
+  instagram: 'text-pink-500',
+  tiktok: 'text-black',
+  youtube: 'text-red-500',
+  twitter: 'text-blue-500',
+  facebook: 'text-blue-600',
+  linkedin: 'text-blue-700',
+} as const;
+
 const Influencers = () => {
   const [searchParams] = useSearchParams();
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
+  const [selectedInfluencer, setSelectedInfluencer] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Handle influencer card click
+  const handleInfluencerClick = (influencer: any) => {
+    setSelectedInfluencer(influencer);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedInfluencer(null);
+  };
 
   // Handle URL search parameter
   useEffect(() => {
@@ -173,7 +217,7 @@ const Influencers = () => {
         <Link to="/add">
           <Button>
             <Plus className="h-4 w-4 mr-2" />
-            Add Influencer
+            Track Influencer
           </Button>
         </Link>
       </div>
@@ -221,13 +265,13 @@ const Influencers = () => {
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               {debouncedSearchTerm 
                 ? `No influencers match your search for "${debouncedSearchTerm}". Try adjusting your search terms.`
-                : "Start building your influencer database by adding your first influencer. Connect with creators and track their performance metrics."
+                : "Start building your influencer database by tracking your first influencer. Connect with creators and monitor their performance metrics."
               }
             </p>
             <Link to="/add">
               <Button className="bg-gradient-to-r from-primary to-primary-glow">
                 <Plus className="h-4 w-4 mr-2" />
-                Add Your First Influencer
+                Track Your First Influencer
               </Button>
             </Link>
           </div>
@@ -235,7 +279,11 @@ const Influencers = () => {
       ) : finalFilteredInfluencers && finalFilteredInfluencers.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {finalFilteredInfluencers.map((influencer: any) => (
-            <Card key={influencer.id} className="p-6 hover:shadow-elegant transition-all duration-200 group cursor-pointer">
+            <Card 
+              key={influencer.id} 
+              className="p-6 hover:shadow-elegant transition-all duration-200 group cursor-pointer"
+              onClick={() => handleInfluencerClick(influencer)}
+            >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center space-x-3">
                   <div className="h-12 w-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
@@ -321,6 +369,146 @@ const Influencers = () => {
           ))}
         </div>
       ) : null}
+
+      {/* Influencer Detail Modal */}
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          {selectedInfluencer && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="flex items-center space-x-4">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                    <span className="text-white font-bold text-2xl">
+                      {selectedInfluencer.name?.charAt(0)?.toUpperCase() || '?'}
+                    </span>
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-bold text-foreground">
+                      {selectedInfluencer.name || 'Unknown Name'}
+                    </h2>
+                    <p className="text-muted-foreground text-lg">
+                      {selectedInfluencer.email || 'No email'}
+                    </p>
+                  </div>
+                </DialogTitle>
+              </DialogHeader>
+
+              <div className="space-y-6 mt-6">
+                {/* Basic Information */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-foreground">Basic Information</h3>
+                    
+                    {selectedInfluencer.category && (
+                      <div className="flex items-center space-x-2">
+                        <Badge variant="outline" className="text-sm">
+                          {selectedInfluencer.category}
+                        </Badge>
+                      </div>
+                    )}
+                    
+                    {selectedInfluencer.location && (
+                      <div className="flex items-center space-x-2">
+                        <MapPin className="h-4 w-4 text-muted-foreground" />
+                        <span className="text-sm text-foreground">{selectedInfluencer.location}</span>
+                      </div>
+                    )}
+                    
+                    <div className="flex items-center space-x-2">
+                      <Calendar className="h-4 w-4 text-muted-foreground" />
+                      <span className="text-sm text-muted-foreground">
+                        Added {new Date(selectedInfluencer.created_at).toLocaleDateString()}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Tags */}
+                  {selectedInfluencer.tags && selectedInfluencer.tags.length > 0 && (
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-foreground">Tags</h3>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedInfluencer.tags.map((tag: string, index: number) => (
+                          <Badge key={index} variant="secondary" className="text-sm">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Biography */}
+                {selectedInfluencer.bio && (
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-semibold text-foreground">Biography</h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {selectedInfluencer.bio}
+                    </p>
+                  </div>
+                )}
+
+                <Separator />
+
+                {/* Social Media Platforms */}
+                {selectedInfluencer.platforms && Object.keys(selectedInfluencer.platforms).length > 0 && (
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-foreground">Social Media Platforms</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {Object.entries(selectedInfluencer.platforms).map(([platform, data]: [string, any]) => {
+                        const IconComponent = PLATFORM_ICONS[platform as keyof typeof PLATFORM_ICONS] || Globe;
+                        const colorClass = PLATFORM_COLORS[platform as keyof typeof PLATFORM_COLORS] || 'text-muted-foreground';
+                        
+                        return (
+                          <Card key={platform} className="p-4">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center space-x-3">
+                                <IconComponent className={`h-6 w-6 ${colorClass}`} />
+                                <div>
+                                  <p className="font-medium text-foreground capitalize">
+                                    {platform}
+                                  </p>
+                                  {data.handle && (
+                                    <p className="text-sm text-muted-foreground">
+                                      @{data.handle}
+                                    </p>
+                                  )}
+                                </div>
+                              </div>
+                              {data.url && (
+                                <Button
+                                  variant="ghost"
+                                  size="sm"
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    window.open(data.url, '_blank');
+                                  }}
+                                >
+                                  <ExternalLink className="h-4 w-4" />
+                                </Button>
+                              )}
+                            </div>
+                          </Card>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+
+                {/* Actions */}
+                <div className="flex justify-end space-x-4 pt-4">
+                  <Button variant="outline" onClick={handleCloseModal}>
+                    Close
+                  </Button>
+                  <Button>
+                    <Heart className="h-4 w-4 mr-2" />
+                    Add to Watchlist
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

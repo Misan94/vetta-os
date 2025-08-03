@@ -12,6 +12,9 @@ import SimpleLayout from "@/components/SimpleLayout";
 import Influencers from "./pages/Influencers";
 import Analytics from "./pages/Analytics";
 import AddInfluencer from "./pages/AddInfluencer";
+import Watchlist from "./pages/Watchlist";
+import Campaigns from "./pages/Campaigns";
+import Reports from "./pages/Reports";
 import SupabaseExample from "@/components/SupabaseExample";
 import NotFound from "./pages/NotFound";
 import { useAuth } from "@/hooks/useSupabase";
@@ -52,33 +55,54 @@ const App = () => (
             </AuthRedirect>
           } />
 
-          {/* Protected Routes */}
-          <Route path="/" element={
-            <ProtectedRoute>
-              <GoogleStyleHomepage />
-            </ProtectedRoute>
-          } />
-          <Route path="/influencers" element={
-            <ProtectedRoute>
-              <SimpleLayout>
-                <Influencers />
-              </SimpleLayout>
-            </ProtectedRoute>
-          } />
-          <Route path="/analytics" element={
-            <ProtectedRoute>
-              <SimpleLayout>
-                <Analytics />
-              </SimpleLayout>
-            </ProtectedRoute>
-          } />
-          <Route path="/add" element={
-            <ProtectedRoute>
-              <SimpleLayout>
-                <AddInfluencer />
-              </SimpleLayout>
-            </ProtectedRoute>
-          } />
+                          {/* Protected Routes */}
+                <Route path="/" element={
+                  <ProtectedRoute>
+                    <GoogleStyleHomepage />
+                  </ProtectedRoute>
+                } />
+                <Route path="/watchlist" element={
+                  <ProtectedRoute>
+                    <SimpleLayout>
+                      <Watchlist />
+                    </SimpleLayout>
+                  </ProtectedRoute>
+                } />
+                <Route path="/influencers" element={
+                  <ProtectedRoute>
+                    <SimpleLayout>
+                      <Influencers />
+                    </SimpleLayout>
+                  </ProtectedRoute>
+                } />
+                <Route path="/analytics" element={
+                  <ProtectedRoute>
+                    <SimpleLayout>
+                      <Analytics />
+                    </SimpleLayout>
+                  </ProtectedRoute>
+                } />
+                <Route path="/campaigns" element={
+                  <ProtectedRoute>
+                    <SimpleLayout>
+                      <Campaigns />
+                    </SimpleLayout>
+                  </ProtectedRoute>
+                } />
+                <Route path="/reports" element={
+                  <ProtectedRoute>
+                    <SimpleLayout>
+                      <Reports />
+                    </SimpleLayout>
+                  </ProtectedRoute>
+                } />
+                <Route path="/add" element={
+                  <ProtectedRoute>
+                    <SimpleLayout>
+                      <AddInfluencer />
+                    </SimpleLayout>
+                  </ProtectedRoute>
+                } />
           <Route path="/profile" element={
             <ProtectedRoute>
               <SimpleLayout>

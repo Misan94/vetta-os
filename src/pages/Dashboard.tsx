@@ -67,7 +67,7 @@ const Dashboard = () => {
         <Link to="/add">
           <Button className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg transition-all duration-200">
             <Plus className="h-4 w-4 mr-2" />
-            Add Influencer
+            Track Influencer
           </Button>
         </Link>
       </div>
@@ -114,12 +114,12 @@ const Dashboard = () => {
               <Instagram className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-medium text-foreground mb-2">No influencers yet</h3>
               <p className="text-muted-foreground mb-4">
-                Start building your database by adding your first influencer
+                Start building your database by tracking your first influencer
               </p>
               <Link to="/add">
                 <Button>
                   <Plus className="h-4 w-4 mr-2" />
-                  Add Your First Influencer
+                  Track Your First Influencer
                 </Button>
               </Link>
             </div>
@@ -156,7 +156,7 @@ const Dashboard = () => {
               <TrendingUp className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-medium text-foreground mb-2">No data available</h3>
               <p className="text-muted-foreground mb-4">
-                Analytics will appear here once you add influencers and collect metrics
+                Analytics will appear here once you track influencers and collect metrics
               </p>
               <Link to="/add">
                 <Button variant="outline">
@@ -191,7 +191,7 @@ const Dashboard = () => {
           <Link to="/add">
             <Button variant="outline" className="h-24 flex-col space-y-2 w-full hover:bg-primary/5 hover:border-primary transition-all duration-200">
               <Plus className="h-6 w-6" />
-              <span>Add New Influencer</span>
+              <span>Track an Influencer</span>
             </Button>
           </Link>
           <Link to="/analytics">

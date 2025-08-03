@@ -127,7 +127,7 @@ const AddInfluencer = () => {
     try {
       // Check if user is authenticated
       if (!user) {
-        throw new Error('You must be signed in to add influencers. Please sign in first.');
+        throw new Error('You must be signed in to track influencers. Please sign in first.');
       }
 
       // Prepare platforms data for selected platforms only
@@ -166,7 +166,7 @@ const AddInfluencer = () => {
       
       toast({
         title: "Success!",
-        description: "Influencer has been added to your database.",
+        description: "Influencer is now being tracked in your database.",
       });
 
       // Reset form
@@ -192,7 +192,7 @@ const AddInfluencer = () => {
       console.error('Error adding influencer:', error);
       toast({
         title: "Error",
-        description: `Failed to add influencer: ${error instanceof Error ? error.message : 'Please try again.'}`,
+        description: `Failed to track influencer: ${error instanceof Error ? error.message : 'Please try again.'}`,
         variant: "destructive",
       });
     } finally {
@@ -204,9 +204,9 @@ const AddInfluencer = () => {
     <div className="max-w-2xl mx-auto">
       {/* Header */}
       <div className="mb-8">
-        <h1 className="text-2xl font-bold text-foreground mb-2">Add New Influencer</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-2">Track an Influencer</h1>
         <p className="text-muted-foreground">
-          Add a new influencer to your database with their platform information and contact details
+          Track a new influencer by adding their platform information and contact details to your database
         </p>
         
 
@@ -441,7 +441,7 @@ const AddInfluencer = () => {
             ) : (
               <>
                 <Save className="h-4 w-4 mr-2" />
-                Save Influencer
+                Track Influencer
               </>
             )}
           </Button>

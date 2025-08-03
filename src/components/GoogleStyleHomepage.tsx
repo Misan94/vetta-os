@@ -7,13 +7,13 @@ import {
   Plus, 
   Users, 
   TrendingUp,
+  Telescope,
   Sparkles,
   Database,
   LogOut,
   User,
   Settings
 } from 'lucide-react';
-import Logo from '@/components/Logo';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useSupabase';
 import { useToast } from '@/components/ui/use-toast';
@@ -65,6 +65,22 @@ const GoogleStyleHomepage = () => {
             <Telescope className="h-6 w-6 text-primary" />
             <span className="text-lg font-semibold text-foreground">Vetta</span>
           </div>
+
+          {/* Navigation Menu - Center */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link 
+              to="/watchlist" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Watchlist
+            </Link>
+            <Link 
+              to="/analytics" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Analytics
+            </Link>
+          </nav>
           
           {/* User Menu */}
           {user && (
@@ -107,7 +123,7 @@ const GoogleStyleHomepage = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-center mb-6">
               <div className="relative">
-                <Logo size="xl" />
+                <Telescope className="h-16 w-16 text-primary" />
                 <Sparkles className="h-6 w-6 text-accent absolute -top-1 -right-1" />
               </div>
             </div>
@@ -146,7 +162,7 @@ const GoogleStyleHomepage = () => {
                 className="h-11 px-6 rounded-full"
               >
                 <Plus className="h-4 w-4 mr-2" />
-                Add New Influencer
+                Track an Influencer
               </Button>
             </div>
           </div>

@@ -46,8 +46,25 @@ const SimpleLayout = ({ children }: SimpleLayoutProps) => {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           {/* Clean Logo - Left Side */}
           <Link to="/" className="flex items-center space-x-2">
-            <Logo size="sm" showText={true} />
+            <Telescope className="h-6 w-6 text-primary" />
+            <span className="text-lg font-semibold text-foreground">Vetta</span>
           </Link>
+
+          {/* Navigation Menu - Center */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link 
+              to="/watchlist" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Watchlist
+            </Link>
+            <Link 
+              to="/analytics" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Analytics
+            </Link>
+          </nav>
           
           {/* User Menu - Right Side */}
           {user && (
