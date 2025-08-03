@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, Eye, EyeOff, Telescope, Check } from 'lucide-react';
+import { Loader2, Eye, EyeOff, Check } from 'lucide-react';
+import Logo from '@/components/Logo';
 import { useAuth } from '@/hooks/useSupabase';
 import { useToast } from '@/components/ui/use-toast';
 
@@ -100,8 +101,7 @@ const Signup = () => {
         {/* Logo and Brand */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <Telescope className="h-8 w-8 text-primary mr-2" />
-            <h1 className="text-2xl font-bold text-foreground">Vetta</h1>
+            <Logo size="md" showText={true} />
           </div>
           <p className="text-muted-foreground">
             Influencer Analytics Platform

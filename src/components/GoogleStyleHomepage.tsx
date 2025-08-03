@@ -7,13 +7,13 @@ import {
   Plus, 
   Users, 
   TrendingUp,
-  Telescope,
   Sparkles,
   Database,
   LogOut,
   User,
   Settings
 } from 'lucide-react';
+import Logo from '@/components/Logo';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useSupabase';
 import { useToast } from '@/components/ui/use-toast';
@@ -107,7 +107,7 @@ const GoogleStyleHomepage = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-center mb-6">
               <div className="relative">
-                <Telescope className="h-16 w-16 text-primary" />
+                <Logo size="xl" />
                 <Sparkles className="h-6 w-6 text-accent absolute -top-1 -right-1" />
               </div>
             </div>
