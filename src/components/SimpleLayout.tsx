@@ -53,6 +53,12 @@ const SimpleLayout = ({ children }: SimpleLayoutProps) => {
           {/* Navigation Menu - Center */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
+              to="/" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Search
+            </Link>
+            <Link 
               to="/watchlist" 
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
@@ -63,6 +69,12 @@ const SimpleLayout = ({ children }: SimpleLayoutProps) => {
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               Analytics
+            </Link>
+            <Link 
+              to="/plan" 
+              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+            >
+              Plan
             </Link>
           </nav>
           

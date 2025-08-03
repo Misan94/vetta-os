@@ -15,6 +15,7 @@ import AddInfluencer from "./pages/AddInfluencer";
 import Watchlist from "./pages/Watchlist";
 import Campaigns from "./pages/Campaigns";
 import Reports from "./pages/Reports";
+import Plan from "./pages/Plan";
 import SupabaseExample from "@/components/SupabaseExample";
 import NotFound from "./pages/NotFound";
 import { useAuth } from "@/hooks/useSupabase";
@@ -93,6 +94,13 @@ const App = () => (
                   <ProtectedRoute>
                     <SimpleLayout>
                       <Reports />
+                    </SimpleLayout>
+                  </ProtectedRoute>
+                } />
+                <Route path="/plan" element={
+                  <ProtectedRoute>
+                    <SimpleLayout>
+                      <Plan />
                     </SimpleLayout>
                   </ProtectedRoute>
                 } />
