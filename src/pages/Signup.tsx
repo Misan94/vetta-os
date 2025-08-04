@@ -309,8 +309,6 @@ const Signup = () => {
                 "60% of marketers say measuring influencer ROI is their #1 challenge. Vetta fixes that."
               </p>
             </div>
-
-
           </div>
         </div>
       </div>
