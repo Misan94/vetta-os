@@ -103,9 +103,9 @@ Deliverables: Social media posts, workout videos, product reviews`;
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="space-y-4">
-        <h1 className="text-4xl md:text-5xl font-clash font-semibold text-foreground">Plan</h1>
-        <p className="text-lg text-muted-foreground">
+      <div>
+        <h1 className="text-3xl font-bold text-foreground">Plan</h1>
+        <p className="text-muted-foreground mt-1">
           Upload your campaign brief and get a comprehensive influencer marketing strategy tailored to your goals
         </p>
       </div>
