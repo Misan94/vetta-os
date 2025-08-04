@@ -67,7 +67,7 @@ const Plan = () => {
       <div className="text-center space-y-4">
         <div className="flex items-center justify-center mb-4">
           <Zap className="h-8 w-8 text-primary mr-2" />
-          <h1 className="text-3xl font-bold text-foreground">Choose Your Plan</h1>
+          <h1 className="text-3xl font-clash font-semibold text-foreground">Choose Your Plan</h1>
         </div>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Scale your influencer marketing with the right plan for your business needs
@@ -98,12 +98,12 @@ const Plan = () => {
                 <div className="flex items-center justify-center mb-2">
                   <IconComponent className="h-8 w-8 text-primary" />
                 </div>
-                <CardTitle className="text-xl">{plan.name}</CardTitle>
+                <CardTitle className="text-xl text-standout">{plan.name}</CardTitle>
                 <CardDescription className="text-sm">
                   {plan.description}
                 </CardDescription>
                 <div className="flex items-baseline justify-center mt-4">
-                  <span className="text-3xl font-bold text-foreground">{plan.price}</span>
+                  <span className="text-3xl text-kpi text-foreground">{plan.price}</span>
                   <span className="text-muted-foreground ml-1">{plan.period}</span>
                 </div>
               </CardHeader>
@@ -135,7 +135,7 @@ const Plan = () => {
 
       {/* FAQ Section */}
       <div className="text-center pt-12 border-t">
-        <h2 className="text-2xl font-semibold mb-4">Need Help Choosing?</h2>
+        <h2 className="text-2xl font-clash font-semibold mb-4">Need Help Choosing?</h2>
         <p className="text-muted-foreground mb-6">
           Our team can help you find the perfect plan for your business needs.
         </p>

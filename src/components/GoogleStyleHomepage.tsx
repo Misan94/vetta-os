@@ -63,7 +63,7 @@ const GoogleStyleHomepage = () => {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-2">
             <Telescope className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold text-foreground">Vetta</span>
+            <span className="text-lg font-clash font-semibold text-foreground">Vetta</span>
           </div>
 
           {/* Navigation Menu - Center */}
@@ -139,7 +139,7 @@ const GoogleStyleHomepage = () => {
                 <Sparkles className="h-6 w-6 text-accent absolute -top-1 -right-1" />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-light text-foreground tracking-tight">
+            <h1 className="text-4xl md:text-5xl font-clash font-semibold text-foreground tracking-tight">
               Vetta
             </h1>
             <p className="text-lg text-muted-foreground max-w-md mx-auto">

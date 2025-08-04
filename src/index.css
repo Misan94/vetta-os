@@ -113,5 +113,65 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Headers and standout elements - Clash Grotesk */
+  h1, h2, h3, h4, h5, h6, .stat {
+    font-family: "Clash Grotesk", Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Body and UI text - Manrope */
+  p, li, td, th, label, button, span, div, input, textarea, select {
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* Optional: big KPI numbers and important stats */
+  .stat--kpi {
+    font-family: "Clash Grotesk", Manrope, sans-serif;
+    font-weight: 700;
+  }
+
+  /* Navigation and buttons - keep readable with Manrope */
+  nav a, .btn, button {
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 500;
+  }
+
+  /* Card titles and section headers - Clash Grotesk */
+  .card-title, .section-title, .page-title {
+    font-family: "Clash Grotesk", Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Utility classes for font application */
+@layer utilities {
+  .font-clash {
+    font-family: "Clash Grotesk", Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    letter-spacing: -0.02em;
+  }
+  
+  .font-manrope {
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+  
+  .text-standout {
+    font-family: "Clash Grotesk", Manrope, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-kpi {
+    font-family: "Clash Grotesk", Manrope, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
   }
 }

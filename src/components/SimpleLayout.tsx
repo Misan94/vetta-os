@@ -47,7 +47,7 @@ const SimpleLayout = ({ children }: SimpleLayoutProps) => {
           {/* Clean Logo - Left Side */}
           <Link to="/" className="flex items-center space-x-2">
             <Telescope className="h-6 w-6 text-primary" />
-            <span className="text-lg font-semibold text-foreground">Vetta</span>
+            <span className="text-lg font-clash font-semibold text-foreground">Vetta</span>
           </Link>
 
           {/* Navigation Menu - Center */}
