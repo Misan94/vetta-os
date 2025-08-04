@@ -7,13 +7,13 @@ import {
   Plus, 
   Users, 
   TrendingUp,
+  Telescope,
   Sparkles,
   Database,
   LogOut,
   User,
   Settings
 } from 'lucide-react';
-import VettaLogo from './VettaLogo';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useSupabase';
 import { useToast } from '@/components/ui/use-toast';
@@ -62,7 +62,7 @@ const GoogleStyleHomepage = () => {
       <header className="w-full py-4 px-6 border-b relative z-10">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-2">
-            <VettaLogo size="md" />
+            <Telescope className="h-6 w-6 text-primary" />
             <span className="text-lg font-clash font-semibold text-foreground">Vetta</span>
           </div>
 
@@ -135,7 +135,7 @@ const GoogleStyleHomepage = () => {
           <div className="space-y-4">
             <div className="flex items-center justify-center mb-6">
               <div className="relative">
-                <VettaLogo size="lg" className="h-16 w-16" />
+                <Telescope className="h-16 w-16 text-primary" />
                 <Sparkles className="h-6 w-6 text-accent absolute -top-1 -right-1" />
               </div>
             </div>
