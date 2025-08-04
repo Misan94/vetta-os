@@ -1,7 +1,8 @@
 import { ReactNode } from 'react';
 import { Button } from '@/components/ui/button';
-import { Telescope, LogOut, User, Settings } from 'lucide-react';
+import { LogOut, User, Settings } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import VettaLogo from './VettaLogo';
 import { useAuth } from '@/hooks/useSupabase';
 import { useToast } from '@/components/ui/use-toast';
 import {
@@ -46,7 +47,7 @@ const SimpleLayout = ({ children }: SimpleLayoutProps) => {
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           {/* Clean Logo - Left Side */}
           <Link to="/" className="flex items-center space-x-2">
-            <Telescope className="h-6 w-6 text-primary" />
+            <VettaLogo size="md" />
             <span className="text-lg font-clash font-semibold text-foreground">Vetta</span>
           </Link>
 
