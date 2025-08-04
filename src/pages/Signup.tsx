@@ -277,8 +277,7 @@ const Signup = () => {
             
             {/* Subheading */}
             <p className="text-xl font-semibold mb-8 drop-shadow-md">
-              <strong>Start making smarter influencer decisions.</strong><br />
-              Vetta helps you find the right creators, monitor their impact, and turn your campaigns into measurable business growth.
+              <strong>Start making smarter influencer decisions.</strong>
             </p>
 
             {/* Features List */}
@@ -311,10 +310,7 @@ const Signup = () => {
               </p>
             </div>
 
-            {/* Closing Statement */}
-            <p className="text-base drop-shadow-md opacity-90">
-              Join marketers and agencies using Vetta to build scalable, data-driven influencer programs that work.
-            </p>
+
           </div>
         </div>
       </div>
