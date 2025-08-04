@@ -103,12 +103,9 @@ Deliverables: Social media posts, workout videos, product reviews`;
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="text-center space-y-4">
-        <div className="flex items-center justify-center mb-4">
-          <Lightbulb className="h-8 w-8 text-primary mr-2" />
-          <h1 className="text-3xl font-clash font-semibold text-foreground">Campaign Strategy Planner</h1>
-        </div>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+      <div className="space-y-4">
+        <h1 className="text-4xl md:text-5xl font-clash font-semibold text-foreground">Plan</h1>
+        <p className="text-lg text-muted-foreground">
           Upload your campaign brief and get a comprehensive influencer marketing strategy tailored to your goals
         </p>
       </div>
