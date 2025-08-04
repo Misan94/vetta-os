@@ -215,16 +215,46 @@ const Login = () => {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         
         {/* Content Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white z-10">
-            <h3 className="text-3xl font-bold mb-4 drop-shadow-lg">
-              Track influencer performance.
+        <div className="absolute inset-0 flex items-center justify-center p-8">
+          <div className="text-white z-10 max-w-lg">
+            {/* Main Headline */}
+            <h3 className="text-4xl font-bold mb-6 drop-shadow-lg font-clash">
+              Tired of Guesswork?
             </h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 opacity-80">
-              <div className="text-lg font-semibold drop-shadow-md">Analytics</div>
-              <div className="text-lg font-semibold drop-shadow-md">Insights</div>
-              <div className="text-lg font-semibold drop-shadow-md">Growth</div>
-              <div className="text-lg font-semibold drop-shadow-md">Success</div>
+            
+            {/* Subheading */}
+            <p className="text-xl font-semibold mb-8 drop-shadow-md">
+              <strong>Start making smarter influencer decisions.</strong>
+            </p>
+
+            {/* Features List */}
+            <div className="mb-8">
+              <h4 className="text-lg font-semibold mb-4 drop-shadow-md">What you can do with Vetta:</h4>
+              <ul className="space-y-3 text-base drop-shadow-md">
+                <li className="flex items-start">
+                  <span className="font-semibold mr-2">•</span>
+                  <span><strong>Find high-fit influencers</strong> faster — no more hours of manual scrolling</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold mr-2">•</span>
+                  <span><strong>Track key metrics</strong> like engagement, audience quality, and growth</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold mr-2">•</span>
+                  <span><strong>Set alerts</strong> for spikes, drops, or brand safety signals</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="font-semibold mr-2">•</span>
+                  <span><strong>Plan campaigns</strong> with briefs that sync seamlessly across your team</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Quote */}
+            <div className="mb-8 p-4 bg-black bg-opacity-30 rounded-lg">
+              <p className="text-base italic drop-shadow-md">
+                "60% of marketers say measuring influencer ROI is their #1 challenge. Vetta fixes that."
+              </p>
             </div>
           </div>
         </div>
