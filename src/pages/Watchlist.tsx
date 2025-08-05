@@ -39,12 +39,7 @@ const Watchlist = () => {
             Keep track of your favorite influencers and monitor their performance
           </p>
         </div>
-        <Link to="/influencers">
-          <Button>
-            <Plus className="h-4 w-4 mr-2" />
-            Track Influencer
-          </Button>
-        </Link>
+
       </div>
 
       {/* Search and Filters */}
@@ -73,7 +68,7 @@ const Watchlist = () => {
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               {searchTerm 
                 ? "No influencers in your watchlist match your search criteria."
-                : "Start building your watchlist by adding influencers you want to monitor. Track their performance and engagement over time."
+                : "Start building your watchlist by adding influencers you want to monitor. Watch their performance and engagement over time."
               }
             </p>
             <Link to="/influencers">

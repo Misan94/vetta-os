@@ -11,10 +11,9 @@ import GoogleStyleHomepage from "@/components/GoogleStyleHomepage";
 import SimpleLayout from "@/components/SimpleLayout";
 import Influencers from "./pages/Influencers";
 import Analytics from "./pages/Analytics";
-import AddInfluencer from "./pages/AddInfluencer";
+
 import Watchlist from "./pages/Watchlist";
-import Campaigns from "./pages/Campaigns";
-import Reports from "./pages/Reports";
+
 import Plan from "./pages/Plan";
 import SupabaseExample from "@/components/SupabaseExample";
 import NotFound from "./pages/NotFound";
@@ -59,7 +58,9 @@ const App = () => (
                           {/* Protected Routes */}
                 <Route path="/" element={
                   <ProtectedRoute>
-                    <GoogleStyleHomepage />
+                    <SimpleLayout>
+                      <GoogleStyleHomepage />
+                    </SimpleLayout>
                   </ProtectedRoute>
                 } />
                 <Route path="/watchlist" element={
@@ -83,20 +84,6 @@ const App = () => (
                     </SimpleLayout>
                   </ProtectedRoute>
                 } />
-                <Route path="/campaigns" element={
-                  <ProtectedRoute>
-                    <SimpleLayout>
-                      <Campaigns />
-                    </SimpleLayout>
-                  </ProtectedRoute>
-                } />
-                <Route path="/reports" element={
-                  <ProtectedRoute>
-                    <SimpleLayout>
-                      <Reports />
-                    </SimpleLayout>
-                  </ProtectedRoute>
-                } />
                 <Route path="/plan" element={
                   <ProtectedRoute>
                     <SimpleLayout>
@@ -104,13 +91,7 @@ const App = () => (
                     </SimpleLayout>
                   </ProtectedRoute>
                 } />
-                <Route path="/add" element={
-                  <ProtectedRoute>
-                    <SimpleLayout>
-                      <AddInfluencer />
-                    </SimpleLayout>
-                  </ProtectedRoute>
-                } />
+
           <Route path="/profile" element={
             <ProtectedRoute>
               <SimpleLayout>

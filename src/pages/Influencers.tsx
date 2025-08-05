@@ -9,7 +9,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/u
 import { Separator } from '@/components/ui/separator';
 import { 
   Search, 
-  Plus, 
   Filter, 
   MoreVertical,
   Instagram,
@@ -214,12 +213,7 @@ const Influencers = () => {
             )}
           </p>
         </div>
-        <Link to="/add">
-          <Button>
-            <Plus className="h-4 w-4 mr-2" />
-            Track Influencer
-          </Button>
-        </Link>
+
       </div>
 
       {/* Search and Filters */}
@@ -265,15 +259,9 @@ const Influencers = () => {
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
               {debouncedSearchTerm 
                 ? `No influencers match your search for "${debouncedSearchTerm}". Try adjusting your search terms.`
-                : "Start building your influencer database by tracking your first influencer. Connect with creators and monitor their performance metrics."
+                : "Your influencer database will appear here once you start building your network. Connect with creators and monitor their performance metrics."
               }
             </p>
-            <Link to="/add">
-              <Button className="bg-gradient-to-r from-primary to-primary-glow">
-                <Plus className="h-4 w-4 mr-2" />
-                Track Your First Influencer
-              </Button>
-            </Link>
           </div>
         </Card>
       ) : finalFilteredInfluencers && finalFilteredInfluencers.length > 0 ? (

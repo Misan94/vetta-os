@@ -7,7 +7,6 @@ import {
   Eye, 
   Heart,
   Instagram,
-  Plus,
   ArrowUpRight,
   Star
 } from 'lucide-react';
@@ -64,12 +63,7 @@ const Dashboard = () => {
             Welcome to your influencer analytics platform
           </p>
         </div>
-        <Link to="/add">
-          <Button className="bg-gradient-to-r from-primary to-primary-glow hover:shadow-lg transition-all duration-200">
-            <Plus className="h-4 w-4 mr-2" />
-            Track Influencer
-          </Button>
-        </Link>
+
       </div>
 
       {/* Stats Grid */}
@@ -114,14 +108,8 @@ const Dashboard = () => {
               <Instagram className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-medium text-foreground mb-2">No influencers yet</h3>
               <p className="text-muted-foreground mb-4">
-                Start building your database by tracking your first influencer
+                Your influencer database will appear here once you start adding contacts
               </p>
-              <Link to="/add">
-                <Button>
-                  <Plus className="h-4 w-4 mr-2" />
-                  Track Your First Influencer
-                </Button>
-              </Link>
             </div>
           ) : (
             <div className="space-y-3">
@@ -156,13 +144,8 @@ const Dashboard = () => {
               <TrendingUp className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-lg font-medium text-foreground mb-2">No data available</h3>
               <p className="text-muted-foreground mb-4">
-                Analytics will appear here once you track influencers and collect metrics
+                Analytics will appear here once you have influencer data and metrics
               </p>
-              <Link to="/add">
-                <Button variant="outline">
-                  Get Started
-                </Button>
-              </Link>
             </div>
           ) : (
             <div className="space-y-3">
@@ -188,12 +171,7 @@ const Dashboard = () => {
       <Card className="p-6">
         <h2 className="text-lg font-semibold text-foreground mb-4">Quick Actions</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <Link to="/add">
-            <Button variant="outline" className="h-24 flex-col space-y-2 w-full hover:bg-primary/5 hover:border-primary transition-all duration-200">
-              <Plus className="h-6 w-6" />
-              <span>Track an Influencer</span>
-            </Button>
-          </Link>
+
           <Link to="/analytics">
             <Button variant="outline" className="h-24 flex-col space-y-2 w-full hover:bg-success/5 hover:border-success transition-all duration-200">
               <TrendingUp className="h-6 w-6" />
