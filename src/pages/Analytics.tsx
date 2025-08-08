@@ -1,6 +1,8 @@
+import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
 import { 
   TrendingUp, 
   TrendingDown, 
@@ -10,10 +12,33 @@ import {
   MessageCircle,
   Calendar,
   Download,
-  Filter
+  Filter,
+  Search,
+  Loader2,
+  Image,
+  Video,
+  FileText,
+  ExternalLink
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { phylloService } from '@/lib/phyllo';
 
 const Analytics = () => {
+  const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isSearching, setIsSearching] = useState(false);
+
+  // Handle search functionality
+  const handleSearch = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchTerm.trim()) {
+      setIsSearching(true);
+      // Navigate to influencers page with search query
+      navigate(`/influencers?search=${encodeURIComponent(searchTerm.trim())}`);
+      setIsSearching(false);
+    }
+  };
+
   // Mock data for demonstration
   const overviewStats = [
     {
@@ -50,8 +75,62 @@ const Analytics = () => {
     }
   ];
 
-  const topCategories = [
-    // Mock data - will be populated from database
+  const latestPosts = [
+    {
+      id: 1,
+      author: "John Fitness",
+      platform: "instagram",
+      content: "Just crushed a new PR at the gym! 💪 Who's ready to join me for tomorrow's workout?",
+      type: "image",
+      timestamp: "2 hours ago",
+      likes: 1247,
+      comments: 89,
+      thumbnail: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=60&h=60&fit=crop&crop=center"
+    },
+    {
+      id: 2,
+      author: "Sarah Tech",
+      platform: "youtube",
+      content: "New video: 'React 18 Features You Need to Know' is now live! 🚀",
+      type: "video",
+      timestamp: "4 hours ago",
+      likes: 892,
+      comments: 156,
+      thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=60&h=60&fit=crop&crop=center"
+    },
+    {
+      id: 3,
+      author: "Mike's Kitchen",
+      platform: "tiktok",
+      content: "30-second pasta recipe that will change your life 🍝✨",
+      type: "video",
+      timestamp: "6 hours ago",
+      likes: 3456,
+      comments: 234,
+      thumbnail: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=60&h=60&fit=crop&crop=center"
+    },
+    {
+      id: 4,
+      author: "Emma Explores",
+      platform: "instagram",
+      content: "Sunrise over Santorini never gets old 🌅 What's your favorite travel destination?",
+      type: "image",
+      timestamp: "8 hours ago",
+      likes: 2198,
+      comments: 145,
+      thumbnail: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=60&h=60&fit=crop&crop=center"
+    },
+    {
+      id: 5,
+      author: "Alex Business",
+      platform: "linkedin",
+      content: "5 strategies that helped me scale my startup to $1M ARR in 18 months",
+      type: "text",
+      timestamp: "12 hours ago",
+      likes: 567,
+      comments: 78,
+      thumbnail: null
+    }
   ];
 
   const engagementTrends = [
@@ -79,6 +158,30 @@ const Analytics = () => {
           </Button>
         </div>
       </div>
+
+      {/* Search Bar */}
+      <Card className="p-4">
+        <form onSubmit={handleSearch} className="relative">
+          <div className="relative group max-w-md">
+            <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 transition-colors ${
+              isSearching ? 'text-primary animate-pulse' : 'text-muted-foreground group-focus-within:text-primary'
+            }`} />
+            {isSearching && (
+              <Loader2 className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 animate-spin text-primary" />
+            )}
+            <Input
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              placeholder="Search for influencers by name, category, or platform..."
+              className="pl-10 pr-10 h-10 bg-background border-muted-foreground/20 focus:border-primary transition-all duration-200"
+              disabled={isSearching}
+            />
+          </div>
+          <p className="text-xs text-muted-foreground mt-2">
+            Search will take you to the Influencers page with your query. Try "fitness", "tech", "food", "travel", or "business"
+          </p>
+        </form>
+      </Card>
 
       {/* Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -139,37 +242,89 @@ const Analytics = () => {
           )}
         </Card>
 
-        {/* Top Categories */}
+        {/* Latest Posts */}
         <Card className="p-6">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold text-foreground">Top Categories</h2>
+            <h2 className="text-lg font-semibold text-foreground">Latest Posts</h2>
             <Button variant="outline" size="sm">
+              <ExternalLink className="h-4 w-4 mr-1" />
               View All
             </Button>
           </div>
           
-          {topCategories.length === 0 ? (
+          {latestPosts.length === 0 ? (
             <div className="text-center py-12">
-              <Users className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-foreground mb-2">No category data</h3>
+              <MessageCircle className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
+              <h3 className="text-lg font-medium text-foreground mb-2">No recent posts</h3>
               <p className="text-muted-foreground">
-                Category breakdown will appear once you track influencers
+                Latest posts from your tracked influencers will appear here
               </p>
             </div>
           ) : (
-            <div className="space-y-4">
-              {topCategories.map((category: any, index) => (
-                <div key={index} className="flex items-center justify-between p-3 rounded-lg hover:bg-secondary/50 transition-colors">
-                  <div className="flex items-center space-x-3">
-                    <div className="h-3 w-3 rounded-full bg-gradient-to-r from-primary to-accent"></div>
-                    <span className="font-medium text-foreground">{category.name}</span>
+            <div className="space-y-4 max-h-96 overflow-y-auto">
+              {latestPosts.map((post) => {
+                const ContentIcon = post.type === 'image' ? Image : post.type === 'video' ? Video : FileText;
+                const platformColors = {
+                  instagram: 'text-pink-500',
+                  youtube: 'text-red-500',
+                  tiktok: 'text-black',
+                  linkedin: 'text-blue-700'
+                };
+                
+                return (
+                  <div key={post.id} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-secondary/50 transition-colors">
+                    {/* Author Avatar/Thumbnail */}
+                    <div className="flex-shrink-0">
+                      {post.thumbnail ? (
+                        <img 
+                          src={post.thumbnail} 
+                          alt={post.author}
+                          className="h-10 w-10 rounded-full object-cover"
+                        />
+                      ) : (
+                        <div className="h-10 w-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                          <span className="text-white font-bold text-sm">
+                            {post.author.charAt(0)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Post Content */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center space-x-2 mb-1">
+                        <span className="font-medium text-foreground text-sm">
+                          {post.author}
+                        </span>
+                        <Badge variant="outline" className="text-xs">
+                          {post.platform}
+                        </Badge>
+                        <ContentIcon className={`h-3 w-3 ${platformColors[post.platform as keyof typeof platformColors] || 'text-muted-foreground'}`} />
+                      </div>
+                      
+                      <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
+                        {post.content}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-4 text-xs text-muted-foreground">
+                          <div className="flex items-center space-x-1">
+                            <Heart className="h-3 w-3" />
+                            <span>{post.likes.toLocaleString()}</span>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <MessageCircle className="h-3 w-3" />
+                            <span>{post.comments}</span>
+                          </div>
+                        </div>
+                        <span className="text-xs text-muted-foreground">
+                          {post.timestamp}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex items-center space-x-3">
-                    <Badge variant="outline">{category.count} influencers</Badge>
-                    <span className="text-sm text-muted-foreground">{category.percentage}%</span>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </Card>
